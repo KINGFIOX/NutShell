@@ -1,18 +1,11 @@
-/**************************************************************************************
-* Copyright (c) 2020 Institute of Computing Technology, CAS
-* Copyright (c) 2020 University of Chinese Academy of Sciences
-* 
-* NutShell is licensed under Mulan PSL v2.
-* You can use this software according to the terms and conditions of the Mulan PSL v2. 
-* You may obtain a copy of Mulan PSL v2 at:
-*             http://license.coscl.org.cn/MulanPSL2 
-* 
-* THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER 
-* EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR 
-* FIT FOR A PARTICULAR PURPOSE.  
-*
-* See the Mulan PSL v2 for more details.  
-***************************************************************************************/
+/** ************************************************************************************ Copyright (c) 2020 Institute of Computing Technology, CAS Copyright (c) 2020 University of Chinese Academy of Sciences
+  *
+  * NutShell is licensed under Mulan PSL v2. You can use this software according to the terms and conditions of the Mulan PSL v2. You may obtain a copy of Mulan PSL v2 at: http://license.coscl.org.cn/MulanPSL2
+  *
+  * THIS SOFTWARE IS PROVIDED ON AN "AS IS" BASIS, WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO NON-INFRINGEMENT, MERCHANTABILITY OR FIT FOR A PARTICULAR PURPOSE.
+  *
+  * See the Mulan PSL v2 for more details.
+  */
 
 package top
 
@@ -24,7 +17,6 @@ object DefaultSettings {
     "MMIOSize" -> 0x0000000040000000L,
     "ResetVector" -> 0x80000000L,
     "NrExtIntr" -> 1,
-
     "HasL2cache" -> true,
     "HasPrefetch" -> true,
     "EnableMultiIssue" -> false,
@@ -35,7 +27,6 @@ object DefaultSettings {
     "HasIcache" -> true,
     "MmodeOnly" -> false,
     "IsRV32" -> false,
-
     "FPGAPlatform" -> false,
     "EnableILA" -> true,
     "EnableDebug" -> true,
@@ -95,6 +86,7 @@ object EmbededSettings {
 }
 
 object Settings {
+  // 默认配置 ， 配置放到一个 HashMap 中
   var settings: Map[String, AnyVal] = DefaultSettings()
   def get(field: String) = {
     settings(field).asInstanceOf[Boolean]
@@ -115,7 +107,6 @@ object Settings {
 // 2. Set DATAWIDTH = 32 in Makefile
 // 3. make a fresh build
 
-
 //****************************************
 // Instructions to boot on axu3cg
 //****************************************
@@ -124,7 +115,6 @@ object Settings {
 // 2. Create a project in fpga/
 // 3. Generate bitstram using vivado
 // 4. Copy bit-file to server:/tftpboot/axu3cg/, handle soft link of fpga.bit and power on
-
 
 //****************************************
 // Instructions to boot on pynq
